@@ -5,12 +5,17 @@ import at.refugeescode.mylisttodo.persistence.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @RequestMapping("/todos")
 @RestController
 public class TodoEndpoint {
-    private Repository repository;
+    private Repository repository ;
+
+    public TodoEndpoint(Repository repository) {
+        this.repository = repository;
+    }
+
     @PostMapping
     Todo addTodo(@RequestBody Todo todo){
         repository.save(todo);
