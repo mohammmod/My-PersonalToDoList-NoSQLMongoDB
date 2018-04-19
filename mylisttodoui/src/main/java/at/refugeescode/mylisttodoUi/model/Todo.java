@@ -1,4 +1,4 @@
-package at.refugeescode.mylisttodoUi;
+package at.refugeescode.mylisttodoUi.model;
 
 
 public class Todo {

@@ -1,7 +1,8 @@
-package at.refugeescode.mylisttodoUi;
+package at.refugeescode.mylisttodoUi.view;
 
+import at.refugeescode.mylisttodoUi.model.Todo;
+import at.refugeescode.mylisttodoUi.service.TodoGetter;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -1,12 +1,11 @@
-package at.refugeescode.mylisttodoUi;
+package at.refugeescode.mylisttodoUi.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+import at.refugeescode.mylisttodoUi.model.Todo;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
