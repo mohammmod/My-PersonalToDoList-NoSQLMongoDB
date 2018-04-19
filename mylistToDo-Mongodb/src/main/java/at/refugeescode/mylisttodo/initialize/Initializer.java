@@ -17,19 +17,23 @@ public class Initializer {
     @Bean
     ApplicationRunner applicationRunner(Repository repository){
         return args -> {
-          repository.deleteAll();
+            repository.deleteAll();
             List<Todo> repositories = creatTaskes();
+
             System.out.println("tasks that we have to do ");
+
             repositories.stream()
                     .forEach(element -> System.out.println(element.getTask() +" "+ element.getDone()));
-            repository.save(repositories.get(0));
+            repository.saveAll(repositories);
         };
     }
 
     private List<Todo> creatTaskes() {
         return Stream.of(
-                new Todo("doing deshes",true),
-                new Todo("Coding", true)
+                new Todo("doing deshes",false),
+                new Todo("Coding",false),
+                new Todo("take Shower", false),
+                new Todo("samoo", false)
 
         ).collect(Collectors.toList());
     }

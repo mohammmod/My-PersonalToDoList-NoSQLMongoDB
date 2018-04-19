@@ -9,5 +9,8 @@ import java.util.Optional;
 
 public interface Repository extends MongoRepository<Todo, String> {
     List<Todo> findAll();
+
+    boolean existsById(String id);
+
     Optional<Todo> findById(String id);
 }

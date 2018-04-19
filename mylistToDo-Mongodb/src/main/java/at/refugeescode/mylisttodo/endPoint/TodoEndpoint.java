@@ -16,9 +16,10 @@ public class TodoEndpoint {
         this.repository = repository;
     }
 
-    @PostMapping
-    Todo addTodo(@RequestBody Todo todo){
-        repository.save(todo);
+    @PostMapping("/addtasks")
+    String addTodo(@RequestBody String todo){
+        repository.save(new Todo(todo,false));
+        repository.findAll().forEach(e -> System.out.println(e.getId()));
         return todo;
     }
 
@@ -36,7 +37,24 @@ public class TodoEndpoint {
     Todo makeDone(@PathVariable String id){
         Todo todo = repository.findById(id).get();
         todo.setDone(true);
+        repository.save(todo);
         return todo;
+    }
+
+    @PutMapping("/{id}/undone")
+    Todo makeunDone(@PathVariable String id){
+        Todo todo = repository.findById(id).get();
+        todo.setDone(false);
+        repository.save(todo);
+        return todo;
+    }
+
+    @DeleteMapping("/{id}/delete")
+    void deleteTodo(@PathVariable String id) {
+        if (repository.existsById(id)) {
+            Todo todo = repository.findById(id).get();
+            repository.delete(todo);
+        }
     }
 
 
