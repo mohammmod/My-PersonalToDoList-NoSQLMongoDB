@@ -7,4 +7,5 @@ The ToDo application has an endpoint /todos where we can post our ToDo objects. 
 <li> springBoot2
 <li> thymeleaf
 <li> MongoDB
+<li> bootstrap 4
 </ul>
